@@ -1,0 +1,55 @@
+:root{ --ink:#0b1026; --glass:rgba(255,255,255,.08); }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:#fff;min-height:100vh;overflow-x:hidden;
+  background:linear-gradient(-45deg,#ff6b6b,#feca57,#48dbfb,#1dd1a1,#5f27cd,#ff9ff3);
+  background-size:400% 400%;animation:bgShift 18s ease infinite;}
+@keyframes bgShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.video-bg{position:fixed;inset:0;z-index:-2;opacity:.35;pointer-events:none;
+  background:radial-gradient(circle at 20% 30%,#ffffff55 0 2px,transparent 3px),
+             radial-gradient(circle at 70% 60%,#ffffff44 0 2px,transparent 3px),
+             radial-gradient(circle at 40% 80%,#ffffff33 0 3px,transparent 4px);
+  background-size:300px 300px,220px 220px,180px 180px;animation:drift 30s linear infinite;}
+@keyframes drift{from{background-position:0 0,0 0,0 0}to{background-position:300px 600px,-220px 440px,180px -360px}}
+
+.flow-border{position:fixed;inset:6px;z-index:999;pointer-events:none;border-radius:18px;padding:4px;
+  background:conic-gradient(from var(--a,0deg),#ff6b6b,#feca57,#48dbfb,#1dd1a1,#5f27cd,#ff6b6b);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;animation:spin 6s linear infinite;}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+
+.topbar{display:flex;align-items:center;gap:18px;padding:14px 26px;backdrop-filter:blur(10px);flex-wrap:wrap;
+  background:rgba(10,12,40,.55);border-bottom:1px solid #ffffff22;position:sticky;top:0;z-index:50}
+.logo-wrap .logo{height:88px;width:auto;filter:drop-shadow(0 0 14px #ffffff88);animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.04)}}
+nav a{color:#fff;text-decoration:none;margin-right:14px;font-weight:600;padding:6px 10px;border-radius:8px;transition:.25s;display:inline-block}
+nav a:hover{background:#ffffff2e;transform:translateY(-2px)}
+.lang-switch button{margin-left:4px;padding:6px 10px;border:none;border-radius:8px;cursor:pointer;font-weight:700;background:#ffffffcc;color:#222}
+#userbox{margin-left:auto;font-weight:700}
+
+main{max-width:1100px;margin:34px auto;padding:0 20px}
+.hero{text-align:center;padding:60px 24px;background:var(--glass);border-radius:22px;backdrop-filter:blur(8px);
+  box-shadow:0 18px 50px #0006;animation:rise .8s ease}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);text-shadow:0 4px 18px #0008}
+.hero .sub{font-size:1.3rem;opacity:.9;margin:10px 0 18px}
+.card{background:var(--glass);border-radius:20px;padding:26px;backdrop-filter:blur(8px);box-shadow:0 14px 40px #0007}
+.card input,.card select,.card textarea{width:100%;padding:12px;margin:7px 0;border-radius:10px;border:1px solid #ffffff44;background:#ffffffee;color:#111;font-size:1rem;cursor:pointer}
+.card input:focus,.card select:focus,.card textarea:focus{outline:3px solid #48dbfb;transform:scale(1.01)}
+.card button[type=submit]{width:100%;padding:13px;margin-top:10px;border:none;border-radius:12px;font-size:1.05rem;font-weight:800;cursor:pointer;
+  background:linear-gradient(90deg,#1dd1a1,#48dbfb);color:#04263a;transition:.25s}
+.card button[type=submit]:hover{filter:brightness(1.12);transform:translateY(-2px)}
+
+.stats{display:flex;gap:16px;flex-wrap:wrap;margin:18px 0}
+.stat-box{flex:1;min-width:160px;background:#ffffff18;border-radius:14px;padding:16px;text-align:center}
+.tbl{width:100%;border-collapse:collapse;margin-top:12px;background:#0b102688;border-radius:12px;overflow:hidden}
+.tbl th,.tbl td{padding:10px;text-align:left;border-bottom:1px solid #ffffff1c;font-size:.92rem}
+.badge{padding:3px 9px;border-radius:20px;font-size:.78rem;font-weight:700}
+.pending_gm{background:#feca57;color:#3a2b00}.approved{background:#1dd1a1;color:#04352a}.rejected{background:#ff6b6b;color:#3a0000}
+.approve-btn{background:#1dd1a1;border:none;padding:6px 10px;border-radius:8px;font-weight:700;cursor:pointer}
+.reject-btn{background:#ff6b6b;border:none;padding:6px 10px;border-radius:8px;font-weight:700;cursor:pointer;color:#fff}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:14px}
+.tool-card{display:block;background:#ffffff14;border:1px solid #ffffff2a;border-radius:14px;padding:16px;color:#fff;text-decoration:none;transition:.25s}
+.tool-card:hover{background:#ffffff2a;transform:translateY(-4px) scale(1.02)}
+footer{text-align:center;padding:26px;background:rgba(10,12,40,.6);margin-top:40px}
